@@ -3,11 +3,11 @@ package ca.longship.planetkubb;
 import android.app.Application;
 import android.text.Editable;
 
-class GlobalVars extends Application {
+public class GlobalVars extends Application {
 
 
-    private static String sTeam1Name;
-    private static String sTeam2Name;
+    public static String sTeam1Name;
+    public static String sTeam2Name;
     private static String sT1P1In;
     private static String sT1P2In;
     private static String sT1P3In;

@@ -14,6 +14,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import static ca.longship.planetkubb.GlobalVars.*;
+
 public class TeamLists extends Activity implements View.OnClickListener {
 
     private int team1Players;
@@ -38,12 +40,12 @@ public class TeamLists extends Activity implements View.OnClickListener {
         // TODO Auto-generated method stub
         super.onCreate(savedInstanceState);
         setContentView(R.layout.team1);
-        team1Players = GlobalVars.getTeam1PlayNum();
+        team1Players = getTeam1PlayNum();
 
-        int team2Players = GlobalVars.getTeam2PlayNum();
+        int team2Players = getTeam2PlayNum();
 
-        String team1Name = GlobalVars.getTeam1Name();
-        String team2Name = GlobalVars.getTeam2Name();
+        String team1Name = getTeam1Name();
+        String team2Name = getTeam2Name();
 
         spnPlayer1 = (Spinner) findViewById(R.id.spnT1P1);
         spnPlayer2 = (Spinner) findViewById(R.id.spnT1P2);
@@ -149,68 +151,68 @@ public class TeamLists extends Activity implements View.OnClickListener {
 
                 break;
             case R.id.bAddPlayer1:
-                if (GlobalVars.sTeam1PlayNum == 1) {
+                if (sTeam1PlayNum == 1) {
 
                     playercount = 2;
-                } else if (GlobalVars.sTeam1PlayNum == 2) {
+                } else if (sTeam1PlayNum == 2) {
 
                     playercount = 3;
-                } else if (GlobalVars.sTeam1PlayNum == 3) {
+                } else if (sTeam1PlayNum == 3) {
 
                     playercount = 4;
 
-                } else if (GlobalVars.sTeam1PlayNum == 4) {
+                } else if (sTeam1PlayNum == 4) {
 
                     playercount = 5;
 
-                } else if (GlobalVars.sTeam1PlayNum == 5) {
+                } else if (sTeam1PlayNum == 5) {
 
                     playercount = 6;
 
-                } else if (GlobalVars.sTeam1PlayNum == 6) {
+                } else if (sTeam1PlayNum == 6) {
                     Toast.makeText(getBaseContext(),
                             "Cannot add any more players.  Max is 6",
                             Toast.LENGTH_SHORT).show();
                     playercount = 6;
 
                 }
-                GlobalVars.sTeam1PlayNum = playercount;
-                team1Players = GlobalVars.sTeam1PlayNum;
+                sTeam1PlayNum = playercount;
+                team1Players = sTeam1PlayNum;
                 setVisiblePlayers();
                 break;
             case R.id.bDelPlayer1:
-                if (GlobalVars.sTeam1PlayNum == 1) {
+                if (sTeam1PlayNum == 1) {
                     Toast.makeText(getBaseContext(),
                             "Must have at least 1 player",
                             Toast.LENGTH_SHORT).show();
                     playercount = 1;
-                } else if (GlobalVars.sTeam1PlayNum == 2) {
+                } else if (sTeam1PlayNum == 2) {
                     tvt1p2.setVisibility(View.INVISIBLE);
                     spnPlayer2.setVisibility(View.INVISIBLE);
                     playercount = 1;
-                } else if (GlobalVars.sTeam1PlayNum == 3) {
+                } else if (sTeam1PlayNum == 3) {
                     tvt1p3.setVisibility(View.INVISIBLE);
                     spnPlayer3.setVisibility(View.INVISIBLE);
                     playercount = 2;
 
-                } else if (GlobalVars.sTeam1PlayNum == 4) {
+                } else if (sTeam1PlayNum == 4) {
                     tvt1p4.setVisibility(View.INVISIBLE);
                     spnPlayer4.setVisibility(View.INVISIBLE);
                     playercount = 3;
 
-                } else if (GlobalVars.sTeam1PlayNum == 5) {
+                } else if (sTeam1PlayNum == 5) {
                     tvt1p5.setVisibility(View.INVISIBLE);
                     spnPlayer5.setVisibility(View.INVISIBLE);
                     playercount = 4;
 
-                } else if (GlobalVars.sTeam1PlayNum == 6) {
+                } else if (sTeam1PlayNum == 6) {
                     tvt1p6.setVisibility(View.INVISIBLE);
                     spnPlayer6.setVisibility(View.INVISIBLE);
                     playercount = 5;
 
                 }
-                GlobalVars.sTeam1PlayNum = playercount;
-                team1Players = GlobalVars.sTeam1PlayNum;
+                sTeam1PlayNum = playercount;
+                team1Players = sTeam1PlayNum;
                 setVisiblePlayers();
 
                 break;
@@ -229,10 +231,10 @@ public class TeamLists extends Activity implements View.OnClickListener {
                     pname = aname[0].trim();
                     pinit = aname[1].trim();
 
-                    GlobalVars.setTeam1PlayerNames(pname, x);
-                    GlobalVars.sT1P1 = pname;
+                    setTeam1PlayerNames(pname, x);
+                    sT1P1 = pname;
 
-                    GlobalVars.setTeam1PlayerInit(pinit, x);
+                    setTeam1PlayerInit(pinit, x);
 
                     break;
                 case 1:
@@ -240,10 +242,10 @@ public class TeamLists extends Activity implements View.OnClickListener {
                     pname = aname[0].trim();
                     pinit = aname[1].trim();
 
-                    GlobalVars.setTeam1PlayerNames(pname, x);
-                    GlobalVars.sT1P2 = pname;
+                    setTeam1PlayerNames(pname, x);
+                    sT1P2 = pname;
 
-                    GlobalVars.setTeam1PlayerInit(pinit, x);
+                    setTeam1PlayerInit(pinit, x);
 
                     break;
                 case 2:
@@ -251,40 +253,40 @@ public class TeamLists extends Activity implements View.OnClickListener {
                     pname = aname[0].trim();
                     pinit = aname[1].trim();
 
-                    GlobalVars.setTeam1PlayerNames(pname, x);
-                    GlobalVars.sT1P3 = pname;
+                    setTeam1PlayerNames(pname, x);
+                    sT1P3 = pname;
 
-                    GlobalVars.setTeam1PlayerInit(pinit, x);
+                    setTeam1PlayerInit(pinit, x);
                     break;
                 case 3:
                     aname = spnPlayer4.getSelectedItem().toString().split("-");
                     pname = aname[0].trim();
                     pinit = aname[1].trim();
 
-                    GlobalVars.setTeam1PlayerNames(pname, x);
-                    GlobalVars.sT1P4 = pname;
+                    setTeam1PlayerNames(pname, x);
+                    sT1P4 = pname;
 
-                    GlobalVars.setTeam1PlayerInit(pinit, x);
+                    setTeam1PlayerInit(pinit, x);
                     break;
                 case 4:
                     aname = spnPlayer5.getSelectedItem().toString().split("-");
                     pname = aname[0].trim();
                     pinit = aname[1].trim();
 
-                    GlobalVars.setTeam1PlayerNames(pname, x);
-                    GlobalVars.sT1P5 = pname;
+                    setTeam1PlayerNames(pname, x);
+                    sT1P5 = pname;
 
-                    GlobalVars.setTeam1PlayerInit(pinit, x);
+                    setTeam1PlayerInit(pinit, x);
                     break;
                 case 5:
                     aname = spnPlayer6.getSelectedItem().toString().split("-");
                     pname = aname[0].trim();
                     pinit = aname[1].trim();
 
-                    GlobalVars.setTeam1PlayerNames(pname, x);
-                    GlobalVars.sT1P6 = pname;
+                    setTeam1PlayerNames(pname, x);
+                    sT1P6 = pname;
 
-                    GlobalVars.setTeam1PlayerInit(pinit, x);
+                    setTeam1PlayerInit(pinit, x);
                     break;
 
             }

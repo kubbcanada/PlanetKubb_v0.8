@@ -13,8 +13,12 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
+
+import static android.widget.Toast.*;
+import static ca.longship.planetkubb.GlobalVars.*;
 
 public class TurnEnd extends Activity implements OnClickListener {
 
@@ -73,56 +77,56 @@ public class TurnEnd extends Activity implements OnClickListener {
         switch (arg0.getId()) {
             case R.id.btNext:
 //			GlobalVars.createInkastString();
-                GlobalVars.createThrow1String();
-                GlobalVars.createThrow2String();
-                GlobalVars.createThrow3String();
-                GlobalVars.createThrow4String();
-                GlobalVars.createThrow5String();
-                GlobalVars.createThrow6String();
+                createThrow1String();
+                createThrow2String();
+                createThrow3String();
+                createThrow4String();
+                createThrow5String();
+                createThrow6String();
                 addTurnToDB(this);
-                GlobalVars.initializeNewTurn();
+                initializeNewTurn();
                 Intent inkast = new Intent("ca.longship.planetkubb.TURNINKAST");
                 startActivity(inkast);
                 finish();
                 break;
             case R.id.bEditT1:
                 // Show Throw form
-                GlobalVars.setTurnEdit(1);
+                setTurnEdit(1);
                 // Intent editthrow = new
                 // Intent("ca.longship.planetkubb.THROWEDIT");
                 startActivity(editthrow);
                 finish();
                 break;
             case R.id.bEditT2:
-                GlobalVars.setTurnEdit(2);
+                setTurnEdit(2);
                 // Intent editthrow2 = new
                 // Intent("ca.longship.planetkubb.THROWEDIT");
                 startActivity(editthrow);
                 finish();
                 break;
             case R.id.bEditT3:
-                GlobalVars.setTurnEdit(3);
+                setTurnEdit(3);
                 // Intent editthrow3 = new
                 // Intent("ca.longship.planetkubb.THROWEDIT");
                 startActivity(editthrow);
                 finish();
                 break;
             case R.id.bEditT4:
-                GlobalVars.setTurnEdit(4);
+                setTurnEdit(4);
                 // Intent editthrow4 = new
                 // Intent("ca.longship.planetkubb.THROWEDIT");
                 startActivity(editthrow);
                 finish();
                 break;
             case R.id.bEditT5:
-                GlobalVars.setTurnEdit(5);
+                setTurnEdit(5);
                 // Intent editthrow5 = new
                 // Intent("ca.longship.planetkubb.THROWEDIT");
                 startActivity(editthrow);
                 finish();
                 break;
             case R.id.bEditT6:
-                GlobalVars.setTurnEdit(6);
+                setTurnEdit(6);
                 // Intent editthrow6 = new
                 // Intent("ca.longship.planetkubb.THROWEDIT");
                 startActivity(editthrow);
@@ -135,40 +139,40 @@ public class TurnEnd extends Activity implements OnClickListener {
 
     void showThrows() {
         String throw1;
-        if (GlobalVars.t1bh == 0 && GlobalVars.t1fh == 0) {
+        if (t1bh == 0 && t1fh == 0) {
             throw1 = "Miss";
         } else {
-            throw1 = GlobalVars.t1bh + " base / " + GlobalVars.t1fh + " field";
+            throw1 = t1bh + " base / " + t1fh + " field";
         }
         String throw2;
-        if (GlobalVars.t2bh == 0 && GlobalVars.t2fh == 0) {
+        if (t2bh == 0 && t2fh == 0) {
             throw2 = "Miss";
         } else {
-            throw2 = GlobalVars.t2bh + " base / " + GlobalVars.t2fh + " field";
+            throw2 = t2bh + " base / " + t2fh + " field";
         }
         String throw3;
-        if (GlobalVars.t3bh == 0 && GlobalVars.t3fh == 0) {
+        if (t3bh == 0 && t3fh == 0) {
             throw3 = "Miss";
         } else {
-            throw3 = GlobalVars.t3bh + " base / " + GlobalVars.t3fh + " field";
+            throw3 = t3bh + " base / " + t3fh + " field";
         }
         String throw4;
-        if (GlobalVars.t4bh == 0 && GlobalVars.t4fh == 0) {
+        if (t4bh == 0 && t4fh == 0) {
             throw4 = "Miss";
         } else {
-            throw4 = GlobalVars.t4bh + " base / " + GlobalVars.t4fh + " field";
+            throw4 = t4bh + " base / " + t4fh + " field";
         }
         String throw5;
-        if (GlobalVars.t5bh == 0 && GlobalVars.t5fh == 0) {
+        if (t5bh == 0 && t5fh == 0) {
             throw5 = "Miss";
         } else {
-            throw5 = GlobalVars.t5bh + " base / " + GlobalVars.t5fh + " field";
+            throw5 = t5bh + " base / " + t5fh + " field";
         }
         String throw6;
-        if (GlobalVars.t6bh == 0 && GlobalVars.t6fh == 0) {
+        if (t6bh == 0 && t6fh == 0) {
             throw6 = "Miss";
         } else {
-            throw6 = GlobalVars.t6bh + " base / " + GlobalVars.t6fh + " field";
+            throw6 = t6bh + " base / " + t6fh + " field";
         }
         tvThrow1.setText(throw1);
         tvThrow2.setText(throw2);
@@ -188,7 +192,7 @@ public class TurnEnd extends Activity implements OnClickListener {
                             public void onClick(DialogInterface dialog,
                                                 int which) {
                                 // continue with delete
-                                GlobalVars.resetValues();
+                                resetValues();
                                 Intent openMainActivity = new Intent(
                                         "ca.longship.planetkubb.MAINACTIVITY");
                                 startActivity(openMainActivity);
@@ -207,23 +211,23 @@ public class TurnEnd extends Activity implements OnClickListener {
     public static void addTurnToDB(Context cont) {
         boolean didItWork = true;
         try {
-//			Toast.makeText(cont, "Adding Turn to Database", Toast.LENGTH_SHORT).show();
+			makeText(cont, "Adding Turn to Database", LENGTH_SHORT).show();
             DBAccessMatch dbAccess = new DBAccessMatch(cont);
-            GlobalVars.varsNotNull();
+            varsNotNull();
             dbAccess.open();
-            dbAccess.createTurn(GlobalVars.sMatchID,
-                    GlobalVars.iTurn.toString(), GlobalVars.sCurrentTeam,
-                    GlobalVars.sInkast, GlobalVars.iInkast.toString(),
-                    GlobalVars.bAdvantage.toString(), GlobalVars.sTurn1Player,
-                    GlobalVars.sTurn1Hit, GlobalVars.sTurn2Player,
-                    GlobalVars.sTurn2Hit, GlobalVars.sTurn3Player,
-                    GlobalVars.sTurn3Hit, GlobalVars.sTurn4Player,
-                    GlobalVars.sTurn4Hit, GlobalVars.sTurn5Player,
-                    GlobalVars.sTurn5Hit, GlobalVars.sTurn6Player,
-                    GlobalVars.sTurn6Hit);
+            dbAccess.createTurn(sMatchID,
+                    iTurn.toString(), GlobalVars.sCurrentTeam,
+                    sInkast, iInkast.toString(),
+                    bAdvantage.toString(), sTurn1Player,
+                    sTurn1Hit, sTurn2Player,
+                    sTurn2Hit, sTurn3Player,
+                    sTurn3Hit, sTurn4Player,
+                    sTurn4Hit, sTurn5Player,
+                    sTurn5Hit, sTurn6Player,
+                    sTurn6Hit);
             dbAccess.close();
-            GlobalVars.iTurn++;
-//			Toast.makeText(cont, "Turn Added!!!", Toast.LENGTH_SHORT).show();
+            iTurn++;
+			makeText(cont, "Turn Added!!!", LENGTH_SHORT).show();
 
         } catch (Exception e) {
             didItWork = false;

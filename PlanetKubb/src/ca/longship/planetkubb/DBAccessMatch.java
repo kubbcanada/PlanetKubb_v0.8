@@ -19,9 +19,9 @@ public class DBAccessMatch {
     public static final String KEY_MATCHID = "match_id";
     private static final String KEY_TEAM1NAME = "team1_name";
     private static final String KEY_TEAM2NAME = "team2_name";
-    private static final String KEY_DATE = "date";
+    public static final String KEY_DATE = "date";
     private static final String KEY_LOCATION = "location";
-    private static final String KEY_EVENTNAME = "event_name";
+    public static final String KEY_EVENTNAME = "event_name";
     private static final String KEY_PITCHSURFACE = "pitch_surface";
     private static final String KEY_SCOREDBY = "scored_by";
     private static final String KEY_T1P1 = "t1p1";
@@ -109,7 +109,7 @@ public class DBAccessMatch {
             db.execSQL("CREATE TABLE " + DATABASE_TABLE2 + " (" + KEY_MATCHID
                     + " INTEGER, " + KEY_TURNNUMBER + " TEXT NOT NULL, "
                     + KEY_TEAMNAME + " TEXT NOT NULL, " + KEY_PLAYERINKAST
-                    + "TEXT NOT NULL, " + KEY_KUBBINKAST + " TEXT NOT NULL, "
+                    + " TEXT NOT NULL, " + KEY_KUBBINKAST + " TEXT NOT NULL, "
                     + KEY_ADVANTAGE + " TEXT NOT NULL, " + KEY_THROW1PLAYER
                     + " TEXT NOT NULL, " + KEY_THROW1 + " TEXT NOT NULL, "
                     + KEY_THROW2PLAYER + " TEXT NOT NULL, " + KEY_THROW2
