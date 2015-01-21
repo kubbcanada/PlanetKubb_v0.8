@@ -15,113 +15,113 @@ import android.widget.TextView;
 
 public class TurnInkast extends Activity implements OnClickListener {
 
-	TextView titletv, teamtv, tTurnString, tInkastError;
-	Button throw1;
-	EditText etInkast, etRethrow, etPenalty;
-	Integer inkast, rethrow, penalty;
-	CheckBox cAdvant;
-	Spinner spnPlayerInkast;
+    private TextView tTurnString;
+    private TextView tInkastError;
+    private EditText etInkast;
+    private EditText etRethrow;
+    private EditText etPenalty;
+    private CheckBox cAdvant;
 
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.inkast);
-		GlobalVars.setTeam();
-		GlobalVars.setCurrentTurnString();
-		titletv = (TextView) findViewById(R.id.tvTitle);
-		titletv.setText("Turn " + GlobalVars.getTurnNumber());
-		teamtv = (TextView) findViewById(R.id.textView1);
-		teamtv.setText("Team : " + GlobalVars.getCurrentTeam());
-		tTurnString = (TextView) findViewById(R.id.tvTurnString);
-		tTurnString.setText(GlobalVars.getCurrentTurnString());
-		throw1 = (Button) findViewById(R.id.btThrow1);
-		throw1.setOnClickListener(this);
-		spnPlayerInkast = (Spinner) findViewById(R.id.spnPlayerInkast);
-		etInkast = (EditText) findViewById(R.id.etInkast);
-		etRethrow = (EditText) findViewById(R.id.etRethrow);
-		etPenalty = (EditText) findViewById(R.id.etPenalty);
-		cAdvant = (CheckBox) findViewById(R.id.cbAdvantage);
-		tInkastError = (TextView) findViewById(R.id.tvInkastError);
-		tInkastError.setVisibility(View.INVISIBLE);
-		etInkast.setText(String.valueOf(GlobalVars.getKubbsKnockedDown()));
-		if (GlobalVars.getAdv()){
-			cAdvant.setChecked(true);
-		}
-	}
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        // TODO Auto-generated method stub
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.inkast);
+        GlobalVars.setTeam();
+        GlobalVars.setCurrentTurnString();
+        TextView titletv = (TextView) findViewById(R.id.tvTitle);
+        titletv.setText("Turn " + GlobalVars.getTurnNumber());
+        TextView teamtv = (TextView) findViewById(R.id.textView1);
+        teamtv.setText("Team : " + GlobalVars.getCurrentTeam());
+        tTurnString = (TextView) findViewById(R.id.tvTurnString);
+        tTurnString.setText(GlobalVars.getCurrentTurnString());
+        Button throw1 = (Button) findViewById(R.id.btThrow1);
+        throw1.setOnClickListener(this);
+        Spinner spnPlayerInkast = (Spinner) findViewById(R.id.spnPlayerInkast);
+        etInkast = (EditText) findViewById(R.id.etInkast);
+        etRethrow = (EditText) findViewById(R.id.etRethrow);
+        etPenalty = (EditText) findViewById(R.id.etPenalty);
+        cAdvant = (CheckBox) findViewById(R.id.cbAdvantage);
+        tInkastError = (TextView) findViewById(R.id.tvInkastError);
+        tInkastError.setVisibility(View.INVISIBLE);
+        etInkast.setText(String.valueOf(GlobalVars.getKubbsKnockedDown()));
+        if (GlobalVars.getAdv()) {
+            cAdvant.setChecked(true);
+        }
+    }
 
-	@Override
-	public void onClick(View v) {
-		// TODO Auto-generated method stub
+    @Override
+    public void onClick(View v) {
+        // TODO Auto-generated method stub
 
-		if (etInkast.getText().toString().trim().length() == 0){
-			etInkast.setText("0");
-		} else if (etRethrow.getText().toString().trim().length() == 0){
-			etRethrow.setText("0");
-		} else if (etPenalty.getText().toString().trim().length() == 0){
-			etPenalty.setText("0");
-		}
-		
-		inkast = Integer.parseInt(etInkast.getText().toString());
-		rethrow = Integer.parseInt(etRethrow.getText().toString());
-		penalty = Integer.parseInt(etPenalty.getText().toString());
-		
-		
+        if (etInkast.getText().toString().trim().length() == 0) {
+            etInkast.setText("0");
+        } else if (etRethrow.getText().toString().trim().length() == 0) {
+            etRethrow.setText("0");
+        } else if (etPenalty.getText().toString().trim().length() == 0) {
+            etPenalty.setText("0");
+        }
 
-		if (rethrow > inkast) {
-			tInkastError.setVisibility(View.VISIBLE);
-			tInkastError.setText("Rethrows value is too high.");
+        Integer inkast = Integer.parseInt(etInkast.getText().toString());
+        Integer rethrow = Integer.parseInt(etRethrow.getText().toString());
+        Integer penalty = Integer.parseInt(etPenalty.getText().toString());
+
+
+        if (rethrow > inkast) {
+            tInkastError.setVisibility(View.VISIBLE);
+            tInkastError.setText("Rethrows value is too high.");
 //		} else if ((rethrow - inkast) > 0 && penalty > (rethrow - inkast) || (penalty > rethrow) || (penalty > (rethrow/2))) {
-		} else if ((rethrow - inkast) > 0 && (penalty > rethrow)) {
-			tInkastError.setVisibility(View.VISIBLE);
-			tInkastError.setText("Penalty value is too high.");
-		} else	{
+        } else if ((rethrow - inkast) > 0 && (penalty > rethrow)) {
+            tInkastError.setVisibility(View.VISIBLE);
+            tInkastError.setText("Penalty value is too high.");
+        } else {
 
-			GlobalVars.setInkast(inkast, rethrow, penalty);
-			GlobalVars.createInkastString();
-			GlobalVars.setCurrentTurnString();
-			tTurnString.setText(GlobalVars.getCurrentTurnString());
-			GlobalVars.addToString("{{Game turn\n|Kubb throw 1=" + inkast + "i"
-					+ rethrow + "r\n|Advantage line=");
-			if (cAdvant.isChecked()) {
-				GlobalVars.setAdvantage(true);
-				GlobalVars.addToString("Yes\n");
-			} else {
-				GlobalVars.setAdvantage(false);
-				GlobalVars.addToString("No\n");
+            GlobalVars.setInkast(inkast, rethrow, penalty);
+            GlobalVars.createInkastString();
+            GlobalVars.setCurrentTurnString();
+            tTurnString.setText(GlobalVars.getCurrentTurnString());
+            GlobalVars.addToString("{{Game turn\n|Kubb throw 1=" + inkast + "i"
+                    + rethrow + "r\n|Advantage line=");
+            if (cAdvant.isChecked()) {
+                GlobalVars.setAdvantage(true);
+                GlobalVars.addToString("Yes\n");
+            } else {
+                GlobalVars.setAdvantage(false);
+                GlobalVars.addToString("No\n");
 
-			}
+            }
 
-			GlobalVars.setFieldKubbs(GlobalVars.getFieldKubbsLeft() + inkast);
+            GlobalVars.setFieldKubbs(GlobalVars.getFieldKubbsLeft() + inkast);
 //			Intent throw1 = new Intent("ca.longship.planetkubb.THROW1");
-			Intent throw1 = new Intent("ca.longship.planetkubb.THROW1ALT");
-			startActivity(throw1);
-			finish();
-		}
-	}
-	@Override
-	public void onBackPressed() {
-		new AlertDialog.Builder(this)
-	    .setTitle("Quit Match")
-	    .setMessage("Do you really want to quit scoring?")
-	    .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-	        public void onClick(DialogInterface dialog, int which) { 
-	            // continue with delete
-				Intent openMainActivity = new Intent("ca.longship.planetkubb.MAINACTIVITY");
-				startActivity(openMainActivity);
-				finish();
-	        }
-	     })
-	    .setNegativeButton("No", new DialogInterface.OnClickListener() {
-	        public void onClick(DialogInterface dialog, int which) { 
-	            // do nothing
-	        }
-	     })
-	     .show();
-		
-		return;
-	}
-	
+            Intent throw1 = new Intent("ca.longship.planetkubb.THROW1ALT");
+            startActivity(throw1);
+            finish();
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        new AlertDialog.Builder(this)
+                .setTitle("Quit Match")
+                .setMessage("Do you really want to quit scoring?")
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        // continue with delete
+                        Intent openMainActivity = new Intent("ca.longship.planetkubb.MAINACTIVITY");
+                        startActivity(openMainActivity);
+                        finish();
+                    }
+                })
+                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        // do nothing
+                    }
+                })
+                .show();
+
+
+    }
+
 
 }
 
