@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:text="Turn x"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/tvTurnString"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:text="Turn string goes here" 
+        android:visibility="invisible"/>
+
+    <Button
+        android:id="@+id/btThrow1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/tvTurnString"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="40dp"
+        android:text="Throw 1" />
+
+    <CheckBox
+        android:id="@+id/cbAdvantage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvTitle"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20sp"
+        android:text="Advantage" />
+
+    <TextView
+        android:id="@+id/tvInkast"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/spnPlayerInkast"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="20dp"
+        android:text="Inkast" />
+
+    <TextView
+        android:id="@+id/tvRethrow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tvInkast"
+        android:layout_below="@+id/tvInkast"
+        android:layout_marginTop="40dp"
+        android:text="Rethrow" />
+
+    <TextView
+        android:id="@+id/tvPenalty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvRethrow"
+        android:layout_alignLeft="@+id/tvInkast"
+        android:layout_marginTop="40dp"
+        android:layout_centerVertical="true"
+        android:text="Penalty" />
+
+    <EditText
+        android:id="@+id/etInkast"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/tvInkast"
+        android:layout_alignBottom="@+id/tvInkast"
+        android:layout_alignLeft="@+id/etRethrow"
+        android:layout_toRightOf="@id/tvInkast"
+        android:ems="5"
+        android:inputType="number"
+        android:text="0" />
+
+    <EditText
+        android:id="@+id/etRethrow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/tvRethrow"
+        android:layout_alignBottom="@+id/tvRethrow"
+        android:layout_marginLeft="20sp"
+        android:layout_toRightOf="@+id/tvRethrow"
+        android:ems="5"
+        android:inputType="number"
+        android:text="0" >
+    </EditText>
+
+    <EditText
+        android:id="@+id/etPenalty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/tvPenalty"
+        android:layout_alignBottom="@+id/tvPenalty"
+        android:layout_marginLeft="20sp"
+        android:layout_toRightOf="@+id/tvPenalty"
+        android:ems="5"
+        android:inputType="number"
+        android:text="0" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvTitle"
+        android:layout_centerHorizontal="true"
+        android:text="Team" />
+
+    <TextView
+        android:id="@+id/tvInkastError"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/cbAdvantage"
+        android:layout_below="@+id/etPenalty"
+        android:layout_marginTop="37dp"
+        android:text="ErrorMessage"
+        android:textColor="#ff0000" />
+
+    <TextView 
+        android:id="@+id/tvPinkast"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tvInkast"
+        android:layout_below="@+id/cbAdvantage"
+        android:text="Player Inkast"
+        />
+    
+    <Spinner
+        android:id="@+id/spnPlayerInkast"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/cbAdvantage"
+        android:layout_toRightOf="@+id/tvPinkast" />
+
+</RelativeLayout>

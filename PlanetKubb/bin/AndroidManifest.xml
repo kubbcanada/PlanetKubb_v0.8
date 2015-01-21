@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="ca.longship.planetkubb"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    
+
+    <uses-sdk
+        android:minSdkVersion="11"
+        android:targetSdkVersion="17" />
+
+
+    <application
+        android:name="GlobalVars"
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name=".Splash"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="ca.longship.planetkubb.MAINACTIVITY" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".TeamEntry"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="ca.longship.planetkubb.TEAMENTRY" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".TeamLists"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="ca.longship.planetkubb.TEAMLISTS" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".TeamLists2"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="ca.longship.planetkubb.TEAMLISTS2" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".WhoFirst"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="ca.longship.planetkubb.WHOFIRST" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".TurnAdvantage"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="ca.longship.planetkubb.TURNADVANTAGE" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".TurnInkast"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="ca.longship.planetkubb.TURNINKAST" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        
+        <activity
+            android:name=".Login"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="ca.longship.planetkubb.LOGIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".GameOver"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="ca.longship.planetkubb.GAMEOVER" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".menu"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="ca.longship.planetkubb.MENU" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Tabs"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="ca.longship.planetkubb.TABS" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Throw1Alt"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="ca.longship.planetkubb.THROW1ALT" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Throw2Alt"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="ca.longship.planetkubb.THROW2ALT" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Throw3Alt"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="ca.longship.planetkubb.THROW3ALT" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Throw4Alt"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="ca.longship.planetkubb.THROW4ALT" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Throw5Alt"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="ca.longship.planetkubb.THROW5ALT" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Throw6Alt"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="ca.longship.planetkubb.THROW6ALT" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".TurnEnd"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="ca.longship.planetkubb.TURNEND" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+         <activity
+            android:name=".ThrowEdit"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="ca.longship.planetkubb.THROWEDIT" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+         <activity
+            android:name=".MatchList"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="ca.longship.planetkubb.MATCHLIST" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+         <activity
+            android:name=".PlayerInfo"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="ca.longship.planetkubb.PLAYERINFO" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+<activity
+            android:name=".MatchEdit"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="ca.longship.planetkubb.MATCHEDIT" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+         
+         </application>
+
+</manifest>

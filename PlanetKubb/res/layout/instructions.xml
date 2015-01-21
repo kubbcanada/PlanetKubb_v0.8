@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="
+        Before starting to score any matches, ensure that all the players involved in the match are in the Player Info area by clicking the Player Info button.  There you can add, edit or delete players.\n\n
+        To start scoring the match you can choose Start Scoring.  From here you can fill out all the details of the match or wait until later if you so choose.\n\n
+        When listing matches or players, to access their menus simply long press on the item you wish to show, edit or delete.\n\n
+        To edit a matches information, you must first selet Edit on the match list screen by long-pressing and choosing Edit.  On the edit screen it shows you the basic match info and then all the turns of that match.  Here you tap the match information and it will bring up the match information edit screen.\n\n
+        To copy the text of the match to the clipboard, select List Matches, choose the match by long-pressing on it and select the Show menu option.  Once the match is listed in the view, simply long-press anywhere on the match details and it will copy it to the clipboard.  It also shows a message stating that it copied it to the clipboard.
+        
+        
+        
+        ">
+    </TextView>
+    </LinearLayout>
+    
+
+</ScrollView>

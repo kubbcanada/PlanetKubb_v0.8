@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/teamTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enter Team Name and Number of Players" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/tvTeam1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Team 1" />
+
+        <EditText
+            android:id="@+id/etTeam1Name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Team 1 Name" >
+        </EditText>
+
+        <EditText
+            android:id="@+id/etTeam1NumberPlayers"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="3"
+            android:inputType="number"
+            android:text="2" >
+        </EditText>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/tvTeam2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Team 2" />
+
+        <EditText
+            android:id="@+id/etTeam2Name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Team 2 Name" >
+        </EditText>
+
+        <EditText
+            android:id="@+id/etTeam2NumberPlayers"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="3"
+            android:inputType="number"
+            android:text="2" >
+        </EditText>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Start Date" />
+
+        <EditText
+            android:id="@+id/etDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="YYYY-MM-DD"
+             >
+        </EditText>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Location" />
+
+        <EditText
+            android:id="@+id/etLocation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Location" >
+        </EditText>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Event" />
+
+        <EditText
+            android:id="@+id/etEvent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Event Name" >
+        </EditText>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pitch Surface" />
+
+        <EditText
+            android:id="@+id/etSurface"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Grass" >
+        </EditText>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Scored by" />
+
+        <EditText
+            android:id="@+id/etScoredBy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Scorers name" >
+        </EditText>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/bTeam1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Next : Team 1 Players" />
+
+    <Button
+        android:id="@+id/bPrevious"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Get Data from Previous Match" />
+
+    <TextView
+        android:id="@+id/tvError1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="Number of Players must be between 1 and 6 for each team"
+        android:textColor="#FF0000"
+        android:textSize="20dp"
+        android:visibility="invisible" />
+
+</LinearLayout>

@@ -1,0 +1,728 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TabHost
+        android:id="@+id/tabhost"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <TabWidget
+                android:id="@android:id/tabs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+            </TabWidget>
+
+            <FrameLayout
+                android:id="@android:id/tabcontent"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <RelativeLayout
+                    android:id="@+id/tab1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+
+                    <TextView
+                        android:id="@+id/tvTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerHorizontal="true"
+                        android:text="Turn x"
+                        android:textSize="30sp" />
+
+                    <CheckBox
+                        android:id="@+id/cbAdvantage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tvTitle"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="20sp"
+                        android:text="Advantage" />
+
+                    <TextView
+                        android:id="@+id/tvInkast"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_below="@+id/cbAdvantage"
+                        android:layout_marginLeft="25dp"
+                        android:layout_marginTop="20dp"
+                        android:text="Inkast" />
+
+                    <EditText
+                        android:id="@+id/etInkast"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBaseline="@+id/tvInkast"
+                        android:layout_alignBottom="@+id/tvInkast"
+                        android:layout_alignLeft="@+id/etRethrow"
+                        android:layout_toRightOf="@id/tvInkast"
+                        android:ems="5"
+                        android:inputType="number"
+                        android:text="0" />
+
+                    <TextView
+                        android:id="@+id/textView1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tvTitle"
+                        android:layout_centerHorizontal="true"
+                        android:text="Team" />
+
+                    <TextView
+                        android:id="@+id/tvInkastError"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@+id/cbAdvantage"
+                        android:layout_below="@+id/etPenalty"
+                        android:text="ErrorMessage"
+                        android:textColor="#ff0000" />
+
+                    <TextView
+                        android:id="@+id/tvRethrow"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBaseline="@+id/etRethrow"
+                        android:layout_alignLeft="@+id/tvInkast"
+                        android:layout_below="@id/tvInkast"
+                        android:text="Rethrow" />
+
+                    <TextView
+                        android:id="@+id/tvPenalty"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBaseline="@+id/etPenalty"
+                        android:layout_alignBottom="@+id/etPenalty"
+                        android:layout_alignLeft="@+id/tvRethrow"
+                        android:text="Penalty" />
+
+                    <EditText
+                        android:id="@+id/etPenalty"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@+id/etRethrow"
+                        android:layout_below="@+id/etRethrow"
+                        android:ems="5"
+                        android:inputType="number"
+                        android:text="0" />
+
+                    <EditText
+                        android:id="@+id/etRethrow"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/etInkast"
+                        android:layout_toRightOf="@+id/tvRethrow"
+                        android:ems="5"
+                        android:inputType="number"
+                        android:text="0" >
+                    </EditText>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/tab2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+
+                    <TextView
+                        android:id="@+id/tvTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerHorizontal="true"
+                        android:text="Throw 1"
+                        android:textSize="30sp" />
+
+                    <TextView
+                        android:id="@+id/textView1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_below="@+id/tvTitle"
+                        android:layout_marginLeft="25dp"
+                        android:layout_marginTop="40dp"
+                        android:text="Player" />
+
+                    <Spinner
+                        android:id="@+id/spnPlayer1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@+id/textView1"
+                        android:layout_centerHorizontal="true" />
+
+                    <CheckBox
+                        android:id="@+id/cbBase1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@+id/cbMiss1"
+                        android:layout_below="@+id/cbMiss1"
+                        android:text="Base" />
+
+                    <CheckBox
+                        android:id="@+id/cbField1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@+id/cbBase1"
+                        android:layout_below="@+id/cbBase1"
+                        android:text="Field" />
+
+                    <CheckBox
+                        android:id="@+id/cbKing1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@+id/cbField1"
+                        android:layout_below="@+id/cbField1"
+                        android:text="King" />
+
+                    <CheckBox
+                        android:id="@+id/cbMiss1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@+id/textView1"
+                        android:layout_below="@id/spnPlayer1"
+                        android:text="Missed" />
+
+                    <EditText
+                        android:id="@+id/etBaseHit1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@+id/spnPlayer1"
+                        android:layout_below="@+id/cbMiss1"
+                        android:ems="5"
+                        android:inputType="number" >
+                    </EditText>
+
+                    <EditText
+                        android:id="@+id/etFieldHit1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@id/etBaseHit1"
+                        android:layout_below="@id/etBaseHit1"
+                        android:ems="5"
+                        android:inputType="number" />
+
+                    <TextView
+                        android:id="@+id/tvThrow1Error"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/cbKing1"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="30dp"
+                        android:text="Error Message"
+                        android:textColor="#FF0000" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/tab3"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+
+                    <TextView
+                        android:id="@+id/tvTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerHorizontal="true"
+                        android:text="Throw 2"
+                        android:textSize="30sp" />
+
+                    <TextView
+                        android:id="@+id/textView1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_below="@+id/tvTitle"
+                        android:layout_marginLeft="25dp"
+                        android:layout_marginTop="40dp"
+                        android:text="Player" />
+
+                    <Spinner
+                        android:id="@+id/spnPlayer2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@+id/textView1"
+                        android:layout_centerHorizontal="true" />
+
+                    <CheckBox
+                        android:id="@+id/cbBase2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@+id/cbMiss2"
+                        android:layout_below="@+id/cbMiss2"
+                        android:text="Base" />
+
+                    <CheckBox
+                        android:id="@+id/cbField2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@+id/cbBase2"
+                        android:layout_below="@+id/cbBase2"
+                        android:text="Field" />
+
+                    <CheckBox
+                        android:id="@+id/cbKing2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@+id/cbField2"
+                        android:layout_below="@+id/cbField2"
+                        android:text="King" />
+
+                    <CheckBox
+                        android:id="@+id/cbMiss2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@+id/textView1"
+                        android:layout_below="@id/spnPlayer2"
+                        android:text="Missed" />
+
+                    <EditText
+                        android:id="@+id/etBaseHit2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@+id/spnPlayer2"
+                        android:layout_below="@+id/cbMiss2"
+                        android:ems="5"
+                        android:inputType="number" >
+                    </EditText>
+
+                    <EditText
+                        android:id="@+id/etFieldHit2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@id/etBaseHit2"
+                        android:layout_below="@id/etBaseHit2"
+                        android:ems="5"
+                        android:inputType="number" />
+
+                    <TextView
+                        android:id="@+id/tvThrow2Error"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/cbKing2"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="30dp"
+                        android:text="Error Message"
+                        android:textColor="#FF0000" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/tab4"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:id="@+id/tvTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerHorizontal="true"
+                        android:text="Throw 3"
+                        android:textSize="30sp" />
+
+                    <TextView
+                        android:id="@+id/textView1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_below="@+id/tvTitle"
+                        android:layout_marginLeft="25dp"
+                        android:layout_marginTop="40dp"
+                        android:text="Player" />
+
+                    <Spinner
+                        android:id="@+id/spnPlayer3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@+id/textView1"
+                        android:layout_centerHorizontal="true" />
+
+                    <CheckBox
+                        android:id="@+id/cbBase3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@+id/cbMiss3"
+                        android:layout_below="@+id/cbMiss3"
+                        android:text="Base" />
+
+                    <CheckBox
+                        android:id="@+id/cbField3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@+id/cbBase3"
+                        android:layout_below="@+id/cbBase3"
+                        android:text="Field" />
+
+                    <CheckBox
+                        android:id="@+id/cbKing3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@+id/cbField3"
+                        android:layout_below="@+id/cbField3"
+                        android:text="King" />
+
+                    <CheckBox
+                        android:id="@+id/cbMiss3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@+id/textView1"
+                        android:layout_below="@id/spnPlayer3"
+                        android:text="Missed" />
+
+                    <EditText
+                        android:id="@+id/etBaseHit3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@+id/spnPlayer3"
+                        android:layout_below="@+id/cbMiss3"
+                        android:ems="5"
+                        android:inputType="number" >
+                    </EditText>
+
+                    <EditText
+                        android:id="@+id/etFieldHit3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@id/etBaseHit3"
+                        android:layout_below="@id/etBaseHit3"
+                        android:ems="5"
+                        android:inputType="number" />
+
+                    <TextView
+                        android:id="@+id/tvThrow3Error"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/cbKing3"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="30dp"
+                        android:text="Error Message"
+                        android:textColor="#FF0000" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/tab5"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:id="@+id/tvTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerHorizontal="true"
+                        android:text="Throw 4"
+                        android:textSize="30sp" />
+
+                    <TextView
+                        android:id="@+id/textView1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_below="@+id/tvTitle"
+                        android:layout_marginLeft="25dp"
+                        android:layout_marginTop="40dp"
+                        android:text="Player" />
+
+                    <Spinner
+                        android:id="@+id/spnPlayer4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@+id/textView1"
+                        android:layout_centerHorizontal="true" />
+
+                    <CheckBox
+                        android:id="@+id/cbBase4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@+id/cbMiss4"
+                        android:layout_below="@+id/cbMiss4"
+                        android:text="Base" />
+
+                    <CheckBox
+                        android:id="@+id/cbField4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@+id/cbBase4"
+                        android:layout_below="@+id/cbBase4"
+                        android:text="Field" />
+
+                    <CheckBox
+                        android:id="@+id/cbKing4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@+id/cbField4"
+                        android:layout_below="@+id/cbField4"
+                        android:text="King" />
+
+                    <CheckBox
+                        android:id="@+id/cbMiss4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@+id/textView1"
+                        android:layout_below="@id/spnPlayer4"
+                        android:text="Missed" />
+
+                    <EditText
+                        android:id="@+id/etBaseHit4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@+id/spnPlayer4"
+                        android:layout_below="@+id/cbMiss4"
+                        android:ems="5"
+                        android:inputType="number" >
+                    </EditText>
+
+                    <EditText
+                        android:id="@+id/etFieldHit4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@id/etBaseHit4"
+                        android:layout_below="@id/etBaseHit4"
+                        android:ems="5"
+                        android:inputType="number" />
+
+                    <TextView
+                        android:id="@+id/tvThrow4Error"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/cbKing4"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="30dp"
+                        android:text="Error Message"
+                        android:textColor="#FF0000" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/tab6"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:id="@+id/tvTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerHorizontal="true"
+                        android:text="Throw 5"
+                        android:textSize="30sp" />
+
+                    <TextView
+                        android:id="@+id/textView1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_below="@+id/tvTitle"
+                        android:layout_marginLeft="25dp"
+                        android:layout_marginTop="40dp"
+                        android:text="Player" />
+
+                    <Spinner
+                        android:id="@+id/spnPlayer5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@+id/textView1"
+                        android:layout_centerHorizontal="true" />
+
+                    <CheckBox
+                        android:id="@+id/cbBase5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@+id/cbMiss5"
+                        android:layout_below="@+id/cbMiss5"
+                        android:text="Base" />
+
+                    <CheckBox
+                        android:id="@+id/cbField5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@+id/cbBase5"
+                        android:layout_below="@+id/cbBase5"
+                        android:text="Field" />
+
+                    <CheckBox
+                        android:id="@+id/cbKing5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@+id/cbField5"
+                        android:layout_below="@+id/cbField5"
+                        android:text="King" />
+
+                    <CheckBox
+                        android:id="@+id/cbMiss5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@+id/textView1"
+                        android:layout_below="@id/spnPlayer5"
+                        android:text="Missed" />
+
+                    <EditText
+                        android:id="@+id/etBaseHit5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@+id/spnPlayer5"
+                        android:layout_below="@+id/cbMiss5"
+                        android:ems="5"
+                        android:inputType="number" >
+                    </EditText>
+
+                    <EditText
+                        android:id="@+id/etFieldHit5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@id/etBaseHit5"
+                        android:layout_below="@id/etBaseHit5"
+                        android:ems="5"
+                        android:inputType="number" />
+
+                    <TextView
+                        android:id="@+id/tvThrow5Error"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/cbKing5"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="30dp"
+                        android:text="Error Message"
+                        android:textColor="#FF0000" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/tab7"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:id="@+id/tvTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerHorizontal="true"
+                        android:text="Throw 6"
+                        android:textSize="30sp" />
+
+                    <TextView
+                        android:id="@+id/textView1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_below="@+id/tvTitle"
+                        android:layout_marginLeft="25dp"
+                        android:layout_marginTop="40dp"
+                        android:text="Player" />
+
+                    <Spinner
+                        android:id="@+id/spnPlayer6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@+id/textView1"
+                        android:layout_centerHorizontal="true" />
+
+                    <CheckBox
+                        android:id="@+id/cbBase6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@+id/cbMiss6"
+                        android:layout_below="@+id/cbMiss6"
+                        android:text="Base" />
+
+                    <CheckBox
+                        android:id="@+id/cbField6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@+id/cbBase6"
+                        android:layout_below="@+id/cbBase6"
+                        android:text="Field" />
+
+                    <CheckBox
+                        android:id="@+id/cbKing6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@+id/cbField6"
+                        android:layout_below="@+id/cbField6"
+                        android:text="King" />
+
+                    <CheckBox
+                        android:id="@+id/cbMiss6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@+id/textView1"
+                        android:layout_below="@id/spnPlayer6"
+                        android:text="Missed" />
+
+                    <EditText
+                        android:id="@+id/etBaseHit6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@+id/spnPlayer6"
+                        android:layout_below="@+id/cbMiss6"
+                        android:ems="5"
+                        android:inputType="number" >
+                    </EditText>
+
+                    <EditText
+                        android:id="@+id/etFieldHit6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@id/etBaseHit6"
+                        android:layout_below="@id/etBaseHit6"
+                        android:ems="5"
+                        android:inputType="number" />
+
+                    <TextView
+                        android:id="@+id/tvThrow6Error"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/cbKing6"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="30dp"
+                        android:text="Error Message"
+                        android:textColor="#FF0000" />
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:id="@+id/tab8"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:id="@+id/tvFinalTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="End Turn"
+                        android:textSize="30sp" />
+
+                    <Button
+                        android:id="@+id/btSubmitGame"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Submit Game" />
+
+                    <ScrollView
+                        android:id="@+id/scrollView1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" >
+
+                        <TextView
+                            android:id="@+id/tvScroller"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Test" />
+                    </ScrollView>
+                </LinearLayout>
+            </FrameLayout>
+        </LinearLayout>
+    </TabHost>
+
+</LinearLayout>

@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/tvTurnNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_gravity="center"
+        android:text="Turn Number"
+        android:textSize="30sp" />
+
+    <CheckBox
+        android:id="@+id/cbAdvantage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvTurnNumber"
+        android:text="Advantage" />
+
+    <TextView
+        android:id="@+id/tvInkast"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/cbAdvantage"
+        android:text="Inkast" />
+
+    <Spinner
+        android:id="@+id/spnInkast"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/tvInkast"
+        android:layout_alignTop="@id/tvInkast"
+        android:layout_toRightOf="@id/tvInkast" >
+    </Spinner>
+
+    <TextView
+        android:id="@+id/tvRethrow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/spnInkast"
+        android:text="Penalty" />
+
+    <Spinner
+        android:id="@+id/spnRethrow"
+        android:layout_width="wrap_content"
+        android:layout_height="36dp"
+        android:layout_alignTop="@id/tvRethrow"
+        android:layout_toRightOf="@id/tvRethrow" 
+        android:layout_alignBottom="@id/tvRethrow">
+    </Spinner>
+
+    <TextView
+        android:id="@+id/tvPenalty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvRethrow"
+        android:text="Penalty" />
+
+    <Spinner
+        android:id="@+id/spnPenalty"
+        android:layout_width="wrap_content"
+        android:layout_height="36dp"
+        android:layout_alignTop="@id/tvPenalty"
+        android:layout_toRightOf="@id/tvPenalty" 
+        android:layout_alignBottom="@id/tvPenalty">
+    </Spinner>
+
+    <TextView
+        android:id="@+id/tvTurnString"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:text="Turn string goes here" />
+
+    <Button
+        android:id="@+id/btTurnSubmit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/tvTurnString"
+        android:layout_centerHorizontal="true"
+        android:text="Submit Turn" >
+    </Button>
+
+    <TableLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/tvPenalty" >
+
+        <TableRow
+            android:id="@+id/tableRowTitles"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/tvThrowTitle"
+                android:layout_width="0px"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.25"
+                android:text="Throw #" />
+
+            <TextView
+                android:id="@+id/tvPlayerTitle"
+                android:layout_width="0px"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.25"
+                android:text="Player" />
+
+            <TextView
+                android:id="@+id/tvNumberHit"
+                android:layout_width="0px"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.25"
+                android:text="How Many" />
+
+            <TextView
+                android:id="@+id/tvWhatWasHit"
+                android:layout_width="0px"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.25"
+                android:text="What" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/tvThrow1"
+                android:layout_width="0px"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.25"
+                android:text="Throw 1" />
+
+            <Spinner
+                android:id="@+id/spnPlayer1Name"
+                android:layout_width="0px"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.25" />
+
+            <EditText
+                android:id="@+id/etThrow1Number"
+                android:layout_width="0px"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.25"
+                android:ems="3"
+                android:inputType="number" >
+            </EditText>
+
+            <Spinner
+                android:id="@+id/spnWhatWasHit1"
+                android:layout_width="0dip"
+                android:layout_height="36dp"
+                android:layout_weight="0.25" >
+            </Spinner>
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/tvThrow2"
+                android:layout_width="0px"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.25"
+                android:text="Throw 2" />
+
+            <ExpandableListView
+                android:id="@+id/elvPlayerThrow2"
+                android:layout_width="0dip"
+                android:layout_height="36dp"
+                android:layout_weight="0.25" >
+            </ExpandableListView>
+
+            <EditText
+                android:id="@+id/etThrow2Number"
+                android:layout_width="0px"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.25"
+                android:ems="3"
+                android:inputType="number" >
+            </EditText>
+
+            <Spinner
+                android:id="@+id/spnWhatWasHit2"
+                android:layout_width="0dip"
+                android:layout_height="36dp"
+                android:layout_weight="0.25" >
+            </Spinner>
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow3"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/tvThrow3"
+                android:layout_width="0px"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.25"
+                android:text="Throw 3" />
+
+            <ExpandableListView
+                android:id="@+id/elvPlayerThrow3"
+                android:layout_width="0dip"
+                android:layout_height="36dp"
+                android:layout_weight="0.25" >
+            </ExpandableListView>
+
+            <EditText
+                android:id="@+id/etThrow3Number"
+                android:layout_width="0px"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.25"
+                android:ems="3"
+                android:inputType="number" >
+            </EditText>
+
+            <Spinner
+                android:id="@+id/spnWhatWasHit3"
+                android:layout_width="0dip"
+                android:layout_height="36dp"
+                android:layout_weight="0.25" >
+            </Spinner>
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow4"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/tvThrow4"
+                android:layout_width="0px"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.25"
+                android:text="Throw 4" />
+
+            <ExpandableListView
+                android:id="@+id/elvPlayerThrow4"
+                android:layout_width="0dip"
+                android:layout_height="36dp"
+                android:layout_weight="0.25" >
+            </ExpandableListView>
+
+            <EditText
+                android:id="@+id/etThrow4Number"
+                android:layout_width="0px"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.25"
+                android:ems="3"
+                android:inputType="number" >
+            </EditText>
+
+            <Spinner
+                android:id="@+id/spnWhatWasHit4"
+                android:layout_width="0dip"
+                android:layout_height="36dp"
+                android:layout_weight="0.25" >
+            </Spinner>
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow5"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/tvThrow5"
+                android:layout_width="0px"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.25"
+                android:text="Throw 5" />
+
+            <ExpandableListView
+                android:id="@+id/elvPlayerThrow5"
+                android:layout_width="0dip"
+                android:layout_height="36dp"
+                android:layout_weight="0.25" >
+            </ExpandableListView>
+
+            <EditText
+                android:id="@+id/etThrow5Number"
+                android:layout_width="0px"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.25"
+                android:ems="3"
+                android:inputType="number" >
+            </EditText>
+
+            <Spinner
+                android:id="@+id/spnWhatWasHit5"
+                android:layout_width="0dip"
+                android:layout_height="36dp"
+                android:layout_weight="0.25" >
+            </Spinner>
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow6"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/tvThrow6"
+                android:layout_width="0px"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.25"
+                android:text="Throw 6" />
+
+            <ExpandableListView
+                android:id="@+id/elvPlayerThrow6"
+                android:layout_width="0dip"
+                android:layout_height="36dp"
+                android:layout_weight="0.25" >
+            </ExpandableListView>
+
+            <EditText
+                android:id="@+id/etThrow6Number"
+                android:layout_width="0px"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.25"
+                android:ems="3"
+                android:inputType="number" >
+            </EditText>
+
+            <Spinner
+                android:id="@+id/spnWhatWasHit6"
+                android:layout_width="0dip"
+                android:layout_height="36dp"
+                android:layout_weight="0.25" >
+            </Spinner>
+        </TableRow>
+    </TableLayout>
+
+</RelativeLayout>
