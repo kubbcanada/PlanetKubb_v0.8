@@ -25,11 +25,13 @@ public class MainActivity extends Activity implements OnClickListener {
         Button start = (Button) findViewById(R.id.bStart);
         Button matches = (Button) findViewById(R.id.bListMatches);
         Button playerinfo = (Button) findViewById(R.id.bPlayerInfo);
+        Button httptester = (Button) findViewById(R.id.httptest);
         start.setOnClickListener(this);
         matches.setOnClickListener(this);
         playerinfo.setOnClickListener(this);
         Button instructions = (Button) findViewById(R.id.bInstructions);
         instructions.setOnClickListener(this);
+        httptester.setOnClickListener(this);
 
 
     }
@@ -52,6 +54,11 @@ public class MainActivity extends Activity implements OnClickListener {
             case R.id.bPlayerInfo:
                 Intent playerinfo = new Intent("ca.longship.planetkubb.PLAYERINFO");
                 startActivity(playerinfo);
+                finish();
+                break;
+            case R.id.httptest:
+                Intent httptest = new Intent("ca.longship.planetkubb.HTTPCLIENT");
+                startActivity(httptest);
                 finish();
                 break;
             case R.id.bInstructions:
