@@ -37,6 +37,8 @@ public class GlobalVars extends Application {
     static Integer iInkast = 0;
     private static Integer iRethrow = 0;
     private static Integer iPenalty = 0;
+    private static Integer iRKAttempt = 0;
+    private static Integer iRescueKubb = 0;
     static String sTurn1Player = " ", sTurn2Player = " ", sTurn3Player = " ",
             sTurn4Player = " ", sTurn5Player = " ", sTurn6Player = " ";
     private static Integer iTurn1Thrown = 0;
@@ -305,6 +307,12 @@ public class GlobalVars extends Application {
         if (iPenalty > 0) {
             sCurrentTurn = sCurrentTurn + iPenalty + "p ";
         }
+        if (iRKAttempt > 0){
+            sCurrentTurn = sCurrentTurn + iRKAttempt + "y ";
+        }
+        if (iRescueKubb > 0){
+            sCurrentTurn = sCurrentTurn + iRescueKubb + "q ";
+        }
         if (bAdvantage) {
             sCurrentTurn = sCurrentTurn + "a ";
         }
@@ -375,11 +383,13 @@ public class GlobalVars extends Application {
     }
 
     public static void setInkast(Integer inkast, Integer rethrow,
-                                 Integer penalty) {
+                                 Integer penalty, Integer rkattempt, Integer rescuekubb) {
 
         iInkast = inkast;
         iRethrow = rethrow;
         iPenalty = penalty;
+        iRKAttempt = rkattempt;
+        iRescueKubb = rescuekubb;
 
     }
 
@@ -525,6 +535,12 @@ public class GlobalVars extends Application {
         }
         if (iPenalty > 0) {
             sInkast = sInkast + iPenalty + "p ";
+        }
+        if (iRKAttempt > 0){
+            sInkast = sInkast + iRKAttempt + "y ";
+        }
+        if (iRescueKubb > 0){
+            sInkast = sInkast + iRescueKubb + "q ";
         }
 
     }
