@@ -19,6 +19,8 @@ public class Tabs extends Activity implements OnClickListener,
     private EditText etRethrow;
     private EditText etPenalty;
     private CheckBox cAdvant;
+    private EditText etRKAttempt;
+    private EditText etRescueKubb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,6 +72,8 @@ public class Tabs extends Activity implements OnClickListener,
         etInkast = (EditText) findViewById(R.id.etInkast);
         etRethrow = (EditText) findViewById(R.id.etRethrow);
         etPenalty = (EditText) findViewById(R.id.etPenalty);
+        etRKAttempt = (EditText) findViewById(R.id.etRKAttempt);
+        etRescueKubb = (EditText) findViewById(R.id.etRescueKubb);
         cAdvant = (CheckBox) findViewById(R.id.cbAdvantage);
         tInkastError = (TextView) findViewById(R.id.tvInkastError);
         tInkastError.setVisibility(View.INVISIBLE);
@@ -97,6 +101,8 @@ public class Tabs extends Activity implements OnClickListener,
         Integer inkast = Integer.parseInt(etInkast.getText().toString());
         Integer rethrow = Integer.parseInt(etRethrow.getText().toString());
         Integer penalty = Integer.parseInt(etPenalty.getText().toString());
+        Integer rkattempt = Integer.parseInt(etRKAttempt.getText().toString());
+        Integer rescuekubb = Integer.parseInt(etRescueKubb.getText().toString());
 
         if (rethrow > inkast) {
             tInkastError.setVisibility(View.VISIBLE);
@@ -107,7 +113,7 @@ public class Tabs extends Activity implements OnClickListener,
             tInkastError.setText("Penalty value is too high.");
         } else {
 
-            GlobalVars.setInkast(inkast, rethrow, penalty);
+            GlobalVars.setInkast(inkast, rethrow, penalty, rkattempt, rescuekubb );
             GlobalVars.setCurrentTurnString();
             tTurnString.setText(GlobalVars.getCurrentTurnString());
             GlobalVars.addToString("{{Game turn\n|Kubb throw 1=" + inkast + "i"
