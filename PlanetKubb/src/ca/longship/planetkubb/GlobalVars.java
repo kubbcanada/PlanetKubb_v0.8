@@ -305,13 +305,13 @@ public class GlobalVars extends Application {
             sCurrentTurn = sCurrentTurn + iRethrow + "r";
         }
         if (iPenalty > 0) {
-            sCurrentTurn = sCurrentTurn + iPenalty + "p ";
+            sCurrentTurn = sCurrentTurn + iPenalty + "p";
         }
         if (iRKAttempt > 0){
-            sCurrentTurn = sCurrentTurn + iRKAttempt + "y ";
+            sCurrentTurn = sCurrentTurn + iRKAttempt + "y";
         }
         if (iRescueKubb > 0){
-            sCurrentTurn = sCurrentTurn + iRescueKubb + "q ";
+            sCurrentTurn = sCurrentTurn + iRescueKubb + "q";
         }
         if (bAdvantage) {
             sCurrentTurn = sCurrentTurn + "a ";
@@ -534,13 +534,13 @@ public class GlobalVars extends Application {
             sInkast = sInkast + iRethrow + "r";
         }
         if (iPenalty > 0) {
-            sInkast = sInkast + iPenalty + "p ";
+            sInkast = sInkast + iPenalty + "p";
         }
         if (iRKAttempt > 0){
-            sInkast = sInkast + iRKAttempt + "y ";
+            sInkast = sInkast + iRKAttempt + "y";
         }
         if (iRescueKubb > 0){
-            sInkast = sInkast + iRescueKubb + "q ";
+            sInkast = sInkast + iRescueKubb + "q";
         }
 
     }
