@@ -74,38 +74,35 @@
         android:id="@+id/etInkast"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/tvInkast"
-        android:layout_alignBottom="@+id/tvInkast"
-        android:layout_alignLeft="@+id/etRethrow"
-        android:layout_toRightOf="@id/tvInkast"
         android:ems="5"
         android:inputType="number"
-        android:text="0" />
+        android:text="0"
+        android:layout_alignBottom="@+id/tvInkast"
+        android:layout_alignLeft="@+id/tvTitle"
+        android:layout_alignStart="@+id/tvTitle" />
 
     <EditText
         android:id="@+id/etRethrow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/tvRethrow"
-        android:layout_alignBottom="@+id/tvRethrow"
-        android:layout_marginLeft="20sp"
-        android:layout_toRightOf="@+id/tvRethrow"
         android:ems="5"
         android:inputType="number"
-        android:text="0" >
+        android:text="0"
+        android:layout_toRightOf="@id/tvRethrow"
+        android:layout_alignLeft="@+id/etInkast"
+        android:layout_alignBottom="@+id/tvRethrow">
     </EditText>
 
     <EditText
         android:id="@+id/etPenalty"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/tvPenalty"
-        android:layout_alignBottom="@+id/tvPenalty"
-        android:layout_marginLeft="20sp"
-        android:layout_toRightOf="@+id/tvPenalty"
         android:ems="5"
         android:inputType="number"
-        android:text="0" />
+        android:text="0"
+        android:layout_toRightOf="@id/tvPenalty"
+        android:layout_alignLeft="@+id/etInkast"
+        android:layout_alignBottom="@+id/tvPenalty" />
 
     <TextView
         android:id="@+id/textView1"
@@ -119,11 +116,11 @@
         android:id="@+id/tvInkastError"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/cbAdvantage"
-        android:layout_below="@+id/etPenalty"
-        android:layout_marginTop="37dp"
         android:text="ErrorMessage"
-        android:textColor="#ff0000" />
+        android:textColor="#ff0000"
+        android:layout_above="@+id/btThrow1"
+        android:layout_alignLeft="@+id/cbAdvantage"
+        android:layout_alignStart="@+id/cbAdvantage" />
 
     <TextView 
         android:id="@+id/tvPinkast"
@@ -140,5 +137,47 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/cbAdvantage"
         android:layout_toRightOf="@+id/tvPinkast" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="RK Attempt"
+        android:id="@+id/tvRKAttempt"
+        android:layout_below="@+id/tvPenalty"
+        android:layout_alignLeft="@+id/tvPenalty"
+        android:layout_alignStart="@+id/tvPenalty"
+        android:layout_marginTop="40dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Rescue Kubb"
+        android:id="@+id/tvRescueKubb"
+        android:layout_above="@+id/tvInkastError"
+        android:layout_alignLeft="@+id/tvRKAttempt"
+        android:layout_alignStart="@+id/tvRKAttempt"
+        android:layout_marginTop="40dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/etRKAttempt"
+        android:inputType="number"
+        android:text="0"
+        android:ems="5"
+        android:layout_alignBottom="@+id/tvRKAttempt"
+        android:layout_toRightOf="@+id/tvRKAttempt"
+        android:layout_alignLeft="@+id/etPenalty" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/etRescueKubb"
+        android:inputType="number"
+        android:text="0"
+        android:ems="5"
+        android:layout_alignBottom="@+id/tvRescueKubb"
+        android:layout_alignLeft="@+id/etPenalty"
+        android:layout_toRightOf="@+id/tvRescueKubb" />
 
 </RelativeLayout>
