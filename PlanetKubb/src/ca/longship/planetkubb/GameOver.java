@@ -43,7 +43,7 @@ public class GameOver extends Activity implements OnClickListener {
 
         // Create final text from database information here
         String matchid = GlobalVars.sMatchID;
-        //tvMatch.setText(info.createFinalData(matchid));
+        tvMatch.setText(info.createFinalData(matchid));
         info.close();
 
     }

@@ -7,8 +7,8 @@ import android.util.Log;
 import android.view.View;
 import android.os.AsyncTask;
 import android.widget.Button;
-import android.widget.ListView;
-import android.widget.Toast;
+import android.widget.ScrollView;
+import android.widget.TextView;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -27,25 +27,29 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
+
 public class HttpClient extends Activity implements View.OnClickListener {
 
 
-    String value, url, responsebody, result, aJsonString, TeamName = "damn";
+    String value, result;
     Button button;
-    ListView myListView;
+    TextView jsonTextView;
     InputStream inputStream;
-    static JSONObject jObj = null;
-    JSONArray jarray, jdata;
+    ScrollView svJSON;
+    String teamname[];
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.httpclient);
-
-        myListView = (ListView)findViewById(R.id.listview);
+        jsonTextView = (TextView) findViewById(R.id.tJsontext);
         button = (Button)findViewById(R.id.button1);
         button.setOnClickListener(this);
+        svJSON = (ScrollView) findViewById(R.id.svMatchDetails);
+
     }
 
     @Override
@@ -72,6 +76,8 @@ public class HttpClient extends Activity implements View.OnClickListener {
 
             nameValuePairs.add(new BasicNameValuePair("value",value));
 
+            jsonTextView.setText("Did this part work?");
+
 
         }
 
@@ -81,8 +87,8 @@ public class HttpClient extends Activity implements View.OnClickListener {
 
                 org.apache.http.client.HttpClient httpclient = new DefaultHttpClient();
 
-                HttpGet httpget = new HttpGet(value);
-                HttpPost httppost = new HttpPost(value);
+                HttpGet httpget = new HttpGet(String.valueOf(value));
+                HttpPost httppost = new HttpPost(String.valueOf(value));
 
                 httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
 
@@ -90,6 +96,8 @@ public class HttpClient extends Activity implements View.OnClickListener {
 
                 HttpEntity entity = response.getEntity();
                 inputStream = entity.getContent();
+
+
             }catch(Exception e){
 
                 Log.e("log_tag", "Error in http connection " + e.toString());
@@ -100,34 +108,31 @@ public class HttpClient extends Activity implements View.OnClickListener {
 
                 BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream, "UTF-8"), 8);
                 StringBuilder sb = new StringBuilder();
-                String line = null;
+                String line;
                 while ((line = reader.readLine()) != null)
                     sb.append(line + "\n");
                 result = sb.toString();
+                jsonTextView.setText("It has read the data");
+
             } catch (Exception e) {
                 Log.e("log_tag" , "Error converting result " + e.toString());
             }
 
-
-
-
-           try {
-
+            try{
 
                 JSONObject rootobject = new JSONObject(result).getJSONObject("query").getJSONObject("results");
+                String teamname = rootobject.getString("fulltext");
+                jsonTextView.setText(teamname);
 
-
-
-
-
-           } catch (JSONException e) {
-                // TODO Auto-generated catch block
+            } catch (JSONException e){
                 Log.e("JSON Parser", Log.getStackTraceString(e));
                 e.printStackTrace();
             }
 
 
+
             return null;
+
 
         }
 
@@ -135,7 +140,6 @@ public class HttpClient extends Activity implements View.OnClickListener {
 
             Dialog.dismiss();
 
-            Toast.makeText(getApplicationContext(), "Value updated " + TeamName, Toast.LENGTH_SHORT).show();
 
         }
 
@@ -143,6 +147,7 @@ public class HttpClient extends Activity implements View.OnClickListener {
 
     public void grabURL(String url){
         new GrabURL().execute(url);
+        jsonTextView.setText("Did it get the URL?");
     }
 
 }
