@@ -37,6 +37,7 @@ public class DBAccessMatch {
     private static final String KEY_T2P5 = "t2p5";
     private static final String KEY_T2P6 = "t2p6";
 
+
     // TURN Table IDs
     private static final String KEY_TURNNUMBER = "turn_number";
     private static final String KEY_TEAMNAME = "team_name";
@@ -55,6 +56,7 @@ public class DBAccessMatch {
     private static final String KEY_THROW5 = "throw5";
     private static final String KEY_THROW6PLAYER = "throw6_player";
     private static final String KEY_THROW6 = "throw6";
+    private static final String KEY_COMMENTS = "comments";
 
     // PLAYER Table IDs
     public static final String KEY_PLAYERNAME = "player_name";
@@ -119,7 +121,7 @@ public class DBAccessMatch {
                     + " TEXT NOT NULL, " + KEY_THROW5PLAYER
                     + " TEXT NOT NULL, " + KEY_THROW5 + " TEXT NOT NULL, "
                     + KEY_THROW6PLAYER + " TEXT NOT NULL, " + KEY_THROW6
-                    + " TEXT NOT NULL " + ");");
+                    + " TEXT NOT NULL, " + KEY_COMMENTS + ");");
 
             // Create Player Table
             db.execSQL("CREATE TABLE " + DATABASE_TABLE3 + " ("
@@ -192,7 +194,7 @@ public class DBAccessMatch {
                            String throw1player, String throw1, String throw2player,
                            String throw2, String throw3player, String throw3,
                            String throw4player, String throw4, String throw5player,
-                           String throw5, String throw6player, String throw6) {
+                           String throw5, String throw6player, String throw6, String comments) {
 
         ContentValues cv = new ContentValues();
         cv.put(KEY_MATCHID, matchid);
@@ -213,6 +215,7 @@ public class DBAccessMatch {
         cv.put(KEY_THROW5, throw5);
         cv.put(KEY_THROW6PLAYER, throw6player);
         cv.put(KEY_THROW6, throw6);
+        cv.put(KEY_COMMENTS, comments);
         return ourDatabase.insert(DATABASE_TABLE2, null, cv);
 
     }
@@ -594,6 +597,8 @@ public class DBAccessMatch {
             int iT2P5 = c.getColumnIndex(KEY_T2P5);
             int iT2P6 = c.getColumnIndex(KEY_T2P6);
 
+
+
             // Get Number of players on each team
             if (c.getString(iT1P1).trim().length() > 0) {
                 iT1Players = 1;
@@ -741,7 +746,7 @@ public class DBAccessMatch {
                 KEY_TEAMNAME, KEY_PLAYERINKAST, KEY_KUBBINKAST, KEY_ADVANTAGE,
                 KEY_THROW1PLAYER, KEY_THROW1, KEY_THROW2PLAYER, KEY_THROW2,
                 KEY_THROW3PLAYER, KEY_THROW3, KEY_THROW4PLAYER, KEY_THROW4,
-                KEY_THROW5PLAYER, KEY_THROW5, KEY_THROW6PLAYER, KEY_THROW6};
+                KEY_THROW5PLAYER, KEY_THROW5, KEY_THROW6PLAYER, KEY_THROW6, KEY_COMMENTS};
 
         sMatchInfo = sMatchInfo + "{{Game initialize}}\n";
         try {
@@ -765,6 +770,7 @@ public class DBAccessMatch {
                 int iThrow5 = c.getColumnIndex(KEY_THROW5);
                 int iThrow6Player = c.getColumnIndex(KEY_THROW6PLAYER);
                 int iThrow6 = c.getColumnIndex(KEY_THROW6);
+                int iComments = c.getColumnIndex(KEY_COMMENTS);
 
                 for (c.moveToFirst(); !c.isAfterLast(); c.moveToNext()) {
 
@@ -794,6 +800,7 @@ public class DBAccessMatch {
                             + "\n" + "|Throw 6 player="
                             + c.getString(iThrow6Player) + "\n"
                             + "|Throw 6=" + c.getString(iThrow6)
+                            + "\n" + "#" + c.getString(iComments)
                             + "\n}}\n";
 
                 }

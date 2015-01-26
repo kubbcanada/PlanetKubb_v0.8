@@ -8,6 +8,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 
 import android.os.Bundle;
+import android.provider.Settings;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;
@@ -33,6 +34,7 @@ public class Throw1Alt extends Activity implements OnClickListener,
             "10"};
     private CheckBox cbKing;
     private Boolean bError = false;
+    private String comments = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +58,7 @@ public class Throw1Alt extends Activity implements OnClickListener,
         spnPlayerNames = (Spinner) findViewById(R.id.spnPlayer);
         spnKubbsHit = (Spinner) findViewById(R.id.spnKubbsHit);
         cbKing = (CheckBox) findViewById(R.id.cbKing);
+        GlobalVars.sComments = comments;
 
         tvThrow1Error = (TextView) findViewById(R.id.tvThrow1Error);
         // tvThrow1Error.setVisibility(View.INVISIBLE);
@@ -146,6 +149,7 @@ public class Throw1Alt extends Activity implements OnClickListener,
             GlobalVars.sTurn5Hit = "X";
             GlobalVars.sTurn6Hit = "X";
 
+
         } else {
 
             // Calculate What Kubbs were hit based on what remains on Field/Base
@@ -186,10 +190,16 @@ public class Throw1Alt extends Activity implements OnClickListener,
         if (!bError) {
             GlobalVars.setTurnNumber(2);
             if (Turn2.getText().toString().equals("Game Ended")) {
-                TurnEnd.addTurnToDB(this);
+
+
+                Intent turnend = new Intent("ca.longship.planetkubb.TURNEND");
+                startActivity(turnend);
+                finish();
+
+                /*TurnEnd.addTurnToDB(this);
                 Intent gameover = new Intent("ca.longship.planetkubb.GAMEOVER");
                 startActivity(gameover);
-                finish();
+                finish();*/
 
             } else {
                 GlobalVars.setCurrentTurnString();

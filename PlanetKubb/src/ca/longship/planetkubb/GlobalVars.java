@@ -20,6 +20,8 @@ public class GlobalVars extends Application {
     private static String sT2P4In;
     private static String sT2P5In;
     private static String sT2P6In;
+    public static String sComments;
+    public static Boolean bKingHit = false;
     private static String whoFirst;
     private static final String[] sTeam1PlayerNames = {"Player 1", "Player 2", "Player 3",
             "Player 4", "Player 5", "Player 6"};
@@ -786,6 +788,13 @@ public class GlobalVars extends Application {
         }
         addToString("}}\n");
 
+    }
+
+    public static void addCommentsString(String comments) {
+        if (comments != null) {
+            sComments = comments;
+            addToString("# " + comments);
+        }
     }
 
     public static void addPlayerName(String playername) {

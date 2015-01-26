@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -29,6 +30,7 @@ public class TurnEnd extends Activity implements OnClickListener {
     private TextView tvThrow4;
     private TextView tvThrow5;
     private TextView tvThrow6;
+    EditText etComments;
     TextView titletv, teamtv, tTurnString, tvThrow1Error;
     Button Turn2;
     Spinner spnPlayerNames, spnKubbsHit;
@@ -51,6 +53,7 @@ public class TurnEnd extends Activity implements OnClickListener {
         tvThrow4 = (TextView) findViewById(R.id.tvTurn4);
         tvThrow5 = (TextView) findViewById(R.id.tvTurn5);
         tvThrow6 = (TextView) findViewById(R.id.tvTurn6);
+        etComments = (EditText) findViewById(R.id.etComments);
         Button btNext = (Button) findViewById(R.id.btNext);
         Button btThrow1Player = (Button) findViewById(R.id.bEditT1);
         Button btThrow2Player = (Button) findViewById(R.id.bEditT2);
@@ -59,6 +62,9 @@ public class TurnEnd extends Activity implements OnClickListener {
         Button btThrow5Player = (Button) findViewById(R.id.bEditT5);
         Button btThrow6Player = (Button) findViewById(R.id.bEditT6);
         showThrows();
+
+
+
 
         btNext.setOnClickListener(this);
         btThrow1Player.setOnClickListener(this);
@@ -76,18 +82,31 @@ public class TurnEnd extends Activity implements OnClickListener {
         Intent editthrow = new Intent("ca.longship.planetkubb.THROWEDIT");
         switch (arg0.getId()) {
             case R.id.btNext:
-//			GlobalVars.createInkastString();
+    			createInkastString();
                 createThrow1String();
                 createThrow2String();
                 createThrow3String();
                 createThrow4String();
                 createThrow5String();
                 createThrow6String();
+                if (etComments.getText().toString().equals("Comments")){
+                    etComments.setText("");
+                }else {
+                    addCommentsString(etComments.getText().toString());
+                }
                 addTurnToDB(this);
-                initializeNewTurn();
-                Intent inkast = new Intent("ca.longship.planetkubb.TURNINKAST");
-                startActivity(inkast);
-                finish();
+                if (GlobalVars.bKingHit) {
+
+                    Intent gameover = new Intent("ca.longship.planetkubb.GAMEOVER");
+                    startActivity(gameover);
+                    finish();
+                }else {
+
+                    initializeNewTurn();
+                    Intent inkast = new Intent("ca.longship.planetkubb.TURNINKAST");
+                    startActivity(inkast);
+                    finish();
+                }
                 break;
             case R.id.bEditT1:
                 // Show Throw form
@@ -180,6 +199,7 @@ public class TurnEnd extends Activity implements OnClickListener {
         tvThrow4.setText(throw4);
         tvThrow5.setText(throw5);
         tvThrow6.setText(throw6);
+
     }
 
     @Override
@@ -224,7 +244,7 @@ public class TurnEnd extends Activity implements OnClickListener {
                     sTurn3Hit, sTurn4Player,
                     sTurn4Hit, sTurn5Player,
                     sTurn5Hit, sTurn6Player,
-                    sTurn6Hit);
+                    sTurn6Hit, sComments);
             dbAccess.close();
             iTurn++;
 			makeText(cont, "Turn Added!!!", LENGTH_SHORT).show();
