@@ -799,9 +799,15 @@ public class DBAccessMatch {
                             + "|Throw 5=" + c.getString(iThrow5)
                             + "\n" + "|Throw 6 player="
                             + c.getString(iThrow6Player) + "\n"
-                            + "|Throw 6=" + c.getString(iThrow6)
-                            + "\n" + "#" + c.getString(iComments)
-                            + "\n}}\n";
+                            + "|Throw 6=" + c.getString(iThrow6);
+
+                            if(c.getString(iComments).equals("")) {
+                                //sMatchInfo = sMatchInfo;
+                            }else{
+                                sMatchInfo = sMatchInfo + "\n#" + c.getString(iComments);
+                            }
+
+                        sMatchInfo = sMatchInfo + "\n}}\n";
 
                 }
 
