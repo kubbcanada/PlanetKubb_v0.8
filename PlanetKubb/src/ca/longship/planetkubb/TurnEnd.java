@@ -62,7 +62,9 @@ public class TurnEnd extends Activity implements OnClickListener {
         Button btThrow5Player = (Button) findViewById(R.id.bEditT5);
         Button btThrow6Player = (Button) findViewById(R.id.bEditT6);
         showThrows();
-
+        if(GlobalVars.bKingHit){
+            btNext.setText("End Game");
+        }
 
 
 
@@ -94,7 +96,7 @@ public class TurnEnd extends Activity implements OnClickListener {
                 }else {
                     addCommentsString(etComments.getText().toString());
                 }
-                addTurnToDB(this);
+//                addTurnToDB(this);
                 if (GlobalVars.bKingHit) {
 
                     Intent gameover = new Intent("ca.longship.planetkubb.GAMEOVER");
@@ -163,11 +165,17 @@ public class TurnEnd extends Activity implements OnClickListener {
         } else {
             throw1 = t1bh + " base / " + t1fh + " field";
         }
+        if (GlobalVars.sTurn1Hit.equals("K")){
+            throw1="King Hit";
+        }
         String throw2;
         if (t2bh == 0 && t2fh == 0) {
             throw2 = "Miss";
         } else {
             throw2 = t2bh + " base / " + t2fh + " field";
+        }
+        if (GlobalVars.sTurn2Hit.equals("K")){
+            throw2="King Hit";
         }
         String throw3;
         if (t3bh == 0 && t3fh == 0) {
@@ -175,11 +183,17 @@ public class TurnEnd extends Activity implements OnClickListener {
         } else {
             throw3 = t3bh + " base / " + t3fh + " field";
         }
+        if (GlobalVars.sTurn3Hit.equals("K")){
+            throw3="King Hit";
+        }
         String throw4;
         if (t4bh == 0 && t4fh == 0) {
             throw4 = "Miss";
         } else {
             throw4 = t4bh + " base / " + t4fh + " field";
+        }
+        if (GlobalVars.sTurn4Hit.equals("K")){
+            throw4="King Hit";
         }
         String throw5;
         if (t5bh == 0 && t5fh == 0) {
@@ -187,11 +201,17 @@ public class TurnEnd extends Activity implements OnClickListener {
         } else {
             throw5 = t5bh + " base / " + t5fh + " field";
         }
+        if (GlobalVars.sTurn5Hit.equals("K")){
+            throw5="King Hit";
+        }
         String throw6;
         if (t6bh == 0 && t6fh == 0) {
             throw6 = "Miss";
         } else {
             throw6 = t6bh + " base / " + t6fh + " field";
+        }
+        if (GlobalVars.sTurn6Hit.equals("K")){
+            throw6="King Hit";
         }
         tvThrow1.setText(throw1);
         tvThrow2.setText(throw2);

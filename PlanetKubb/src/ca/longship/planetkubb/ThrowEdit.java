@@ -7,6 +7,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;
@@ -24,6 +25,7 @@ public class ThrowEdit extends Activity implements OnClickListener {
     private Spinner spnPlayerNames;
     private Spinner spnKubbsHit;
     private String sCurrentTeam;
+    CheckBox cbKing;
     String sTurnString;
     String sBase;
     String sField;
@@ -39,7 +41,7 @@ public class ThrowEdit extends Activity implements OnClickListener {
         // TODO Auto-generated method stub
         super.onCreate(savedInstanceState);
         setContentView(R.layout.throw1alt);
-        CheckBox cbKing = (CheckBox) findViewById(R.id.cbKing);
+        cbKing = (CheckBox) findViewById(R.id.cbKing);
         spnPlayerNames = (Spinner) findViewById(R.id.spnPlayer);
         spnKubbsHit = (Spinner) findViewById(R.id.spnKubbsHit);
         sCurrentTeam = GlobalVars.getCurrentTeam();
@@ -55,36 +57,49 @@ public class ThrowEdit extends Activity implements OnClickListener {
                 spnPlayerNames.setSelection(saPlayerInitials
                         .indexOf(GlobalVars.sTurn1Player));
                 spnKubbsHit.setSelection(GlobalVars.t1bh + GlobalVars.t1fh);
+                if (GlobalVars.sTurn1Hit.equals("K")){
+                    cbKing.setChecked(true);
+                }
                 break;
             case 2:
                 spnPlayerNames.setSelection(saPlayerInitials
                         .indexOf(GlobalVars.sTurn2Player));
                 spnKubbsHit.setSelection(GlobalVars.t2bh + GlobalVars.t2fh);
-
+                if (GlobalVars.sTurn2Hit.equals("K")){
+                    cbKing.setChecked(true);
+                }
                 break;
             case 3:
                 spnPlayerNames.setSelection(saPlayerInitials
                         .indexOf(GlobalVars.sTurn3Player));
                 spnKubbsHit.setSelection(GlobalVars.t3bh + GlobalVars.t3fh);
-
+                if (GlobalVars.sTurn3Hit.equals("K")){
+                    cbKing.setChecked(true);
+                }
                 break;
             case 4:
                 spnPlayerNames.setSelection(saPlayerInitials
                         .indexOf(GlobalVars.sTurn4Player));
                 spnKubbsHit.setSelection(GlobalVars.t4bh + GlobalVars.t4fh);
-
+                if (GlobalVars.sTurn4Hit.equals("K")){
+                    cbKing.setChecked(true);
+                }
                 break;
             case 5:
                 spnPlayerNames.setSelection(saPlayerInitials
                         .indexOf(GlobalVars.sTurn5Player));
                 spnKubbsHit.setSelection(GlobalVars.t5bh + GlobalVars.t5fh);
-
+                if (GlobalVars.sTurn5Hit.equals("K")){
+                    cbKing.setChecked(true);
+                }
                 break;
             case 6:
                 spnPlayerNames.setSelection(saPlayerInitials
                         .indexOf(GlobalVars.sTurn6Player));
                 spnKubbsHit.setSelection(GlobalVars.t6bh + GlobalVars.t6fh);
-
+                if (GlobalVars.sTurn6Hit.equals("K")){
+                    cbKing.setChecked(true);
+                }
                 break;
         }
 
@@ -96,6 +111,13 @@ public class ThrowEdit extends Activity implements OnClickListener {
         Boolean bError = false;
         Integer iKubbHit = Integer.parseInt(spnKubbsHit.getSelectedItem()
                 .toString());
+        if (cbKing.isChecked()){
+            GlobalVars.bKingHit = true;
+        } else {
+            GlobalVars.bKingHit = false;
+        }
+
+
         switch (GlobalVars.iTurnEdit) {
             case 1:
                 // Set Up Turn 1 info in form
@@ -125,6 +147,7 @@ public class ThrowEdit extends Activity implements OnClickListener {
                     GlobalVars.setFieldKubbs(iField - iKubbHit);
                     GlobalVars.setKubbsKnockedDown(iKubbHit, 0);
                 }
+
 
                 if (!bError) {
 

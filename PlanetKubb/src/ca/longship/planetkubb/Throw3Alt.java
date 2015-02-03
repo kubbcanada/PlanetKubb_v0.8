@@ -127,9 +127,10 @@ public class Throw3Alt extends Activity implements OnClickListener,
 
 
         // If the king is hit, change the string to end the game
-
+        GlobalVars.addPlayerName(spnPlayerNames.getSelectedItem().toString());
         String sTurnString;
         if (cbKing.isChecked()) {
+            GlobalVars.bKingHit=true;
             GlobalVars.createThrow1String();
             GlobalVars.createThrow2String();
             GlobalVars.addToString("|Throw 3 player=" + spnPlayerNames.getSelectedItem().toString() + "\n");
@@ -153,7 +154,7 @@ public class Throw3Alt extends Activity implements OnClickListener,
             Integer iField = GlobalVars.getFieldKubbsLeft();
             Integer iKubbHit = Integer.parseInt(spnKubbsHit.getSelectedItem()
                     .toString());
-            GlobalVars.addPlayerName(spnPlayerNames.getSelectedItem().toString());
+
             if (iKubbHit == 0) {
                 sTurnString = spnPlayerNames.getSelectedItem().toString()
                         + ":-";
@@ -180,11 +181,17 @@ public class Throw3Alt extends Activity implements OnClickListener,
 
             GlobalVars.setTurnNumber(4);
             if (Turn2.getText().toString().equals("Game Ended")) {
+
                 TurnEnd.addTurnToDB(this);
+                Intent turnend = new Intent("ca.longship.planetkubb.TURNEND");
+                startActivity(turnend);
+                finish();
+
+                /*TurnEnd.addTurnToDB(this);
                 Intent gameover = new Intent("ca.longship.planetkubb.GAMEOVER");
                 startActivity(gameover);
                 finish();
-
+*/
             } else {
                 GlobalVars.setCurrentTurnString();
                 Intent throw4 = new Intent("ca.longship.planetkubb.THROW4ALT");

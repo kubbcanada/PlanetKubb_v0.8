@@ -8,6 +8,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 
 import android.os.Bundle;
+import android.provider.Settings;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;
@@ -127,9 +128,10 @@ public class Throw5Alt extends Activity implements OnClickListener,
 
 
         // If the king is hit, change the string to end the game
-
+        GlobalVars.addPlayerName(spnPlayerNames.getSelectedItem().toString());
         String sTurnString;
         if (cbKing.isChecked()) {
+            GlobalVars.bKingHit=true;
 
 
             GlobalVars.createThrow1String();
@@ -154,7 +156,7 @@ public class Throw5Alt extends Activity implements OnClickListener,
             Integer iField = GlobalVars.getFieldKubbsLeft();
             Integer iKubbHit = Integer.parseInt(spnKubbsHit.getSelectedItem()
                     .toString());
-            GlobalVars.addPlayerName(spnPlayerNames.getSelectedItem().toString());
+
             if (iKubbHit == 0) {
                 sTurnString = spnPlayerNames.getSelectedItem().toString()
                         + ":-";
@@ -181,10 +183,17 @@ public class Throw5Alt extends Activity implements OnClickListener,
 
             GlobalVars.setTurnNumber(6);
             if (Turn2.getText().toString().equals("Game Ended")) {
+
                 TurnEnd.addTurnToDB(this);
+                Intent turnend = new Intent("ca.longship.planetkubb.TURNEND");
+                startActivity(turnend);
+                finish();
+
+
+                /*TurnEnd.addTurnToDB(this);
                 Intent gameover = new Intent("ca.longship.planetkubb.GAMEOVER");
                 startActivity(gameover);
-                finish();
+                finish();*/
 
             } else {
                 GlobalVars.setCurrentTurnString();

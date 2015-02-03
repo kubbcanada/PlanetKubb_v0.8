@@ -22,18 +22,18 @@ import android.widget.TextView;
 public class Throw1Alt extends Activity implements OnClickListener,
         CompoundButton.OnCheckedChangeListener {
 
-    private TextView tvThrow1Error;
+    private static TextView tvThrow1Error;
     private Button Turn2;
-    private Spinner spnPlayerNames;
-    private Spinner spnKubbsHit;
+    private static Spinner spnPlayerNames;
+    private static Spinner spnKubbsHit;
     private String sCurrentTeam;
     String sBase;
     String sField;
     private final ArrayList<String> saPlayerInitials = new ArrayList<String>();
     private final String[] saKubbsHit = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9",
             "10"};
-    private CheckBox cbKing;
-    private Boolean bError = false;
+    private static CheckBox cbKing;
+    private static Boolean bError = false;
     private String comments = "";
 
     @Override
@@ -129,10 +129,13 @@ public class Throw1Alt extends Activity implements OnClickListener,
         // TODO Auto-generated method stub
 
 
-        // If the king is hit, change the string to end the game
 
+
+    // If the king is hit, change the string to end the game
+        GlobalVars.addPlayerName(spnPlayerNames.getSelectedItem().toString());
         String sTurnString;
         if (cbKing.isChecked()) {
+            GlobalVars.bKingHit=true;
             GlobalVars.addToString("|Throw 1 player=" + spnPlayerNames.getSelectedItem().toString() + "\n");
             sTurnString = spnPlayerNames.getSelectedItem().toString() + ":K";
             GlobalVars.addToString("|Throw 1=K\n");
@@ -158,7 +161,7 @@ public class Throw1Alt extends Activity implements OnClickListener,
             Integer iField = GlobalVars.getFieldKubbsLeft();
             Integer iKubbHit = Integer.parseInt(spnKubbsHit.getSelectedItem()
                     .toString());
-            GlobalVars.addPlayerName(spnPlayerNames.getSelectedItem().toString());
+
             if (iKubbHit == 0) {
                 sTurnString = spnPlayerNames.getSelectedItem().toString()
                         + ":-";
@@ -191,7 +194,7 @@ public class Throw1Alt extends Activity implements OnClickListener,
             GlobalVars.setTurnNumber(2);
             if (Turn2.getText().toString().equals("Game Ended")) {
 
-
+                TurnEnd.addTurnToDB(this);
                 Intent turnend = new Intent("ca.longship.planetkubb.TURNEND");
                 startActivity(turnend);
                 finish();
@@ -209,6 +212,8 @@ public class Throw1Alt extends Activity implements OnClickListener,
             }
         }
     }
+
+
 
     @Override
     public void onBackPressed() {
@@ -241,5 +246,8 @@ public class Throw1Alt extends Activity implements OnClickListener,
         // TODO Auto-generated method stub
 
     }
+
+
+
 
 }

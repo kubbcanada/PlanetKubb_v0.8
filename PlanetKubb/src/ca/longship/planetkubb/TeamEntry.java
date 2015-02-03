@@ -70,6 +70,16 @@ public class TeamEntry extends Activity implements View.OnClickListener {
         date.setText(currentDate);
         tvErrorMsg = (TextView) findViewById(R.id.tvError1);
 
+        //reset globalvars variables here
+        GlobalVars.sTurn1Player = "";
+        GlobalVars.sTurn2Player = "";
+        GlobalVars.sTurn3Player = "";
+        GlobalVars.sTurn4Player = "";
+        GlobalVars.sTurn5Player = "";
+        GlobalVars.sTurn6Player = "";
+
+
+
     }
 
     @Override
