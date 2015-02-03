@@ -15,7 +15,7 @@ public class Splash extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splash);
         TextView versionTitle = (TextView) findViewById(R.id.splashVersion);
-        String version = "Pre-Beta 0.8 January 21, 2015";
+        String version = getString(R.string.Version) + " " + getString(R.string.date);
         versionTitle.setText("Version : " + version);
         Thread timer = new Thread() {
             public void run() {
