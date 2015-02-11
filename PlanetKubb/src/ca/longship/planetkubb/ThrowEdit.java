@@ -147,7 +147,13 @@ public class ThrowEdit extends Activity implements OnClickListener {
                     GlobalVars.setFieldKubbs(iField - iKubbHit);
                     GlobalVars.setKubbsKnockedDown(iKubbHit, 0);
                 }
-
+                if (cbKing.isChecked()){
+                    GlobalVars.sTurn1Hit.equals("K");
+                    GlobalVars.bKingHit.equals(true);
+                }else{
+                    GlobalVars.sTurn1Hit.equals(" ");
+                    GlobalVars.bKingHit.equals(false);
+                }
 
                 if (!bError) {
 
@@ -183,6 +189,14 @@ public class ThrowEdit extends Activity implements OnClickListener {
 
                     GlobalVars.setFieldKubbs(iField - iKubbHit);
                     GlobalVars.setKubbsKnockedDown(iKubbHit, 0);
+                }
+
+                if (cbKing.isChecked()){
+                    GlobalVars.sTurn2Hit.equals("K");
+                    GlobalVars.bKingHit.equals(true);
+                }else{
+                    GlobalVars.sTurn2Hit.equals(" ");
+                    GlobalVars.bKingHit.equals(false);
                 }
 
                 if (!bError) {
@@ -221,6 +235,14 @@ public class ThrowEdit extends Activity implements OnClickListener {
                     GlobalVars.setKubbsKnockedDown(iKubbHit, 0);
                 }
 
+                if (cbKing.isChecked()){
+                    GlobalVars.sTurn3Hit.equals("K");
+                    GlobalVars.bKingHit.equals(true);
+                }else{
+                    GlobalVars.sTurn3Hit.equals(" ");
+                    GlobalVars.bKingHit.equals(false);
+                }
+
                 if (!bError) {
 
 
@@ -255,6 +277,14 @@ public class ThrowEdit extends Activity implements OnClickListener {
 
                     GlobalVars.setFieldKubbs(iField - iKubbHit);
                     GlobalVars.setKubbsKnockedDown(iKubbHit, 0);
+                }
+
+                if (cbKing.isChecked()){
+                    GlobalVars.sTurn4Hit.equals("K");
+                    GlobalVars.bKingHit.equals(true);
+                }else{
+                    GlobalVars.sTurn4Hit.equals(" ");
+                    GlobalVars.bKingHit.equals(false);
                 }
 
                 if (!bError) {
@@ -293,6 +323,14 @@ public class ThrowEdit extends Activity implements OnClickListener {
                     GlobalVars.setKubbsKnockedDown(iKubbHit, 0);
                 }
 
+                if (cbKing.isChecked()){
+                    GlobalVars.sTurn5Hit.equals("K");
+                    GlobalVars.bKingHit.equals(true);
+                }else{
+                    GlobalVars.sTurn5Hit.equals(" ");
+                    GlobalVars.bKingHit.equals(false);
+                }
+
                 if (!bError) {
 
 
@@ -327,6 +365,14 @@ public class ThrowEdit extends Activity implements OnClickListener {
 
                     GlobalVars.setFieldKubbs(iField - iKubbHit);
                     GlobalVars.setKubbsKnockedDown(iKubbHit, 0);
+                }
+
+                if (cbKing.isChecked()){
+                    GlobalVars.sTurn6Hit.equals("K");
+                    GlobalVars.bKingHit.equals(true);
+                }else{
+                    GlobalVars.sTurn6Hit.equals(" ");
+                    GlobalVars.bKingHit.equals(false);
                 }
 
                 if (!bError) {
